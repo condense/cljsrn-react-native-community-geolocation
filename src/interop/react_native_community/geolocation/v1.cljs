@@ -38,6 +38,11 @@
 (defn stop-observing []
   (module/stopObserving))
 
+(def code->anomaly-category
+  {1 :cognitect.anomalies/forbidden
+   2 :cognitect.anomalies/unavailable
+   3 :cognitect.anomalies/interrupted})
+
 (comment
   (def log (partial println ::log))
   (def err (partial println ::err))
