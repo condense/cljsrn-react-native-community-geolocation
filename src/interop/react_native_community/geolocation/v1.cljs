@@ -1,5 +1,6 @@
 (ns interop.react-native-community.geolocation.v1
-  (:require ["@react-native-community/geolocation" :as module]
+  (:require [react-native]
+            ["@react-native-community/geolocation" :as module]
             [goog.object :as gobject]))
 
 (assert module)
@@ -16,6 +17,7 @@
   (module/setRNConfiguration config))
 
 (defn request-authorization []
+  (assert (not= react-native/Platform.OS "android"))
   (module/requestAuthorization))
 
 (defn get-current-position
